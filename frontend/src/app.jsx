@@ -1,9 +1,15 @@
 import { useState } from 'preact/hooks'
-import preactLogo from './assets/preact.svg'
-import viteLogo from '/vite.svg'
+import './assets/css/style.scss';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from './componants/frontend/Home';
+import About from './componants/frontend/About';
+import ContactUs from './componants/frontend/ContactUs';
+import OurProject from './componants/frontend/OurProject';
+import Services from './componants/frontend/Services';
+import Blogs from './componants/frontend/Blogs';
+
 export function App() {
   const [count, setCount] = useState(0)
 
@@ -11,7 +17,14 @@ export function App() {
     <>
      <BrowserRouter>
      <Routes>
-
+        <Route path='/' element={<Home/>}/>
+        <Route path='/about' element={<About/>}/>
+        <Route path='/services' element={<Services/>}/>
+        <Route path='/projects' element={<OurProject/>}/>
+        <Route path='/blogs' element={<Blogs/>}/>
+        <Route path='/contact-us' element={<ContactUs/>}/>
+        
+        
      </Routes>
      </BrowserRouter>
     </>
