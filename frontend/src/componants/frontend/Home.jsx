@@ -1,6 +1,6 @@
 import React from "react";
 
-import AboutImg from "../../assets/images/about-us.jpg";
+
 import Header from "../common/Header";
 import Footer from "../common/Footer";
 import ServiceImg from "../../assets/images/construction1.jpg";
@@ -14,6 +14,7 @@ import "swiper/css";
 import AvatharImg from "../../assets/images/author-2.jpg";
 import { Pagination } from 'swiper/modules';
 import 'swiper/css/pagination';
+import About from "../common/About";
 
 const Home = () => {
   return (
@@ -48,34 +49,7 @@ const Home = () => {
 
         {/* About Section */}
 
-        <section className="section-2 py-5">
-          <div className="container py-5">
-            <div className="row">
-              <div className="col-md-6">
-                <img src={AboutImg} alt="About Image" className="w-100" />
-              </div>
-              <div className="col-md-6 py-3">
-                <span>About us</span>
-                <h2>Crafting structures that last lifetime</h2>
-                <p>
-                  Crafting structures that last a lifetime involves meticulous
-                  planning, durable materials, and innovative design. Engineers
-                  and architects must focus on resilience, ensuring structures
-                  withstand time, weather, and usage. Sustainability plays a key
-                  role, integrating eco-friendly solutions.{" "}
-                </p>
-                <p>
-                  Timeless structures reflect thoughtful craftsmanship and
-                  adaptability to evolving needs. By combining traditional
-                  techniques with modern advancements, these creations stand as
-                  testaments to human ingenuity. A structure's longevity is
-                  rooted in quality, foresight, and sustainable maintenance
-                  practices.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
+       <About/>
       </main>
 
       {/* Our Services */}
@@ -375,7 +349,7 @@ const Home = () => {
                     width="20"
                     height="20"
                     fill="currentColor"
-                    class="bi bi-star-fill"
+                    claaName="bi bi-star-fill"
                     viewBox="0 0 16 16"
                   >
                     <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
@@ -385,7 +359,7 @@ const Home = () => {
                     width="20"
                     height="20"
                     fill="currentColor"
-                    class="bi bi-star-fill"
+                    claaName="bi bi-star-fill"
                     viewBox="0 0 16 16"
                   >
                     <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
@@ -395,7 +369,7 @@ const Home = () => {
                     width="20"
                     height="20"
                     fill="currentColor"
-                    class="bi bi-star-fill"
+                    claaName="bi bi-star-fill"
                     viewBox="0 0 16 16"
                   >
                     <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
@@ -405,7 +379,7 @@ const Home = () => {
                     width="20"
                     height="20"
                     fill="currentColor"
-                    class="bi bi-star-fill"
+                    claaName="bi bi-star-fill"
                     viewBox="0 0 16 16"
                   >
                     <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
@@ -415,7 +389,7 @@ const Home = () => {
                     width="20"
                     height="20"
                     fill="currentColor"
-                    class="bi bi-star-fill"
+                    claaName="bi bi-star-fill"
                     viewBox="0 0 16 16"
                   >
                     <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
@@ -446,7 +420,7 @@ const Home = () => {
                     width="20"
                     height="20"
                     fill="currentColor"
-                    class="bi bi-star-fill"
+                    claaName="bi bi-star-fill"
                     viewBox="0 0 16 16"
                   >
                     <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
@@ -456,7 +430,7 @@ const Home = () => {
                     width="20"
                     height="20"
                     fill="currentColor"
-                    class="bi bi-star-fill"
+                    claaName="bi bi-star-fill"
                     viewBox="0 0 16 16"
                   >
                     <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
@@ -466,7 +440,7 @@ const Home = () => {
                     width="20"
                     height="20"
                     fill="currentColor"
-                    class="bi bi-star-fill"
+                    claaName="bi bi-star-fill"
                     viewBox="0 0 16 16"
                   >
                     <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
@@ -476,7 +450,7 @@ const Home = () => {
                     width="20"
                     height="20"
                     fill="currentColor"
-                    class="bi bi-star-fill"
+                    claaName="bi bi-star-fill"
                     viewBox="0 0 16 16"
                   >
                     <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
@@ -486,7 +460,7 @@ const Home = () => {
                     width="20"
                     height="20"
                     fill="currentColor"
-                    class="bi bi-star-fill"
+                    claaName="bi bi-star-fill"
                     viewBox="0 0 16 16"
                   >
                     <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
@@ -517,7 +491,7 @@ const Home = () => {
                     width="20"
                     height="20"
                     fill="currentColor"
-                    class="bi bi-star-fill"
+                    claaName="bi bi-star-fill"
                     viewBox="0 0 16 16"
                   >
                     <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
@@ -527,7 +501,7 @@ const Home = () => {
                     width="20"
                     height="20"
                     fill="currentColor"
-                    class="bi bi-star-fill"
+                    claaName="bi bi-star-fill"
                     viewBox="0 0 16 16"
                   >
                     <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
@@ -537,7 +511,7 @@ const Home = () => {
                     width="20"
                     height="20"
                     fill="currentColor"
-                    class="bi bi-star-fill"
+                    claaName="bi bi-star-fill"
                     viewBox="0 0 16 16"
                   >
                     <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
@@ -547,7 +521,7 @@ const Home = () => {
                     width="20"
                     height="20"
                     fill="currentColor"
-                    class="bi bi-star-fill"
+                    claaName="bi bi-star-fill"
                     viewBox="0 0 16 16"
                   >
                     <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
@@ -557,7 +531,7 @@ const Home = () => {
                     width="20"
                     height="20"
                     fill="currentColor"
-                    class="bi bi-star-fill"
+                    claaName="bi bi-star-fill"
                     viewBox="0 0 16 16"
                   >
                     <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
@@ -588,7 +562,7 @@ const Home = () => {
                     width="20"
                     height="20"
                     fill="currentColor"
-                    class="bi bi-star-fill"
+                    claaName="bi bi-star-fill"
                     viewBox="0 0 16 16"
                   >
                     <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
@@ -598,7 +572,7 @@ const Home = () => {
                     width="20"
                     height="20"
                     fill="currentColor"
-                    class="bi bi-star-fill"
+                    claaName="bi bi-star-fill"
                     viewBox="0 0 16 16"
                   >
                     <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
@@ -608,7 +582,7 @@ const Home = () => {
                     width="20"
                     height="20"
                     fill="currentColor"
-                    class="bi bi-star-fill"
+                    claaName="bi bi-star-fill"
                     viewBox="0 0 16 16"
                   >
                     <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
@@ -618,7 +592,7 @@ const Home = () => {
                     width="20"
                     height="20"
                     fill="currentColor"
-                    class="bi bi-star-fill"
+                    claaName="bi bi-star-fill"
                     viewBox="0 0 16 16"
                   >
                     <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
@@ -628,7 +602,7 @@ const Home = () => {
                     width="20"
                     height="20"
                     fill="currentColor"
-                    class="bi bi-star-fill"
+                    claaName="bi bi-star-fill"
                     viewBox="0 0 16 16"
                   >
                     <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
