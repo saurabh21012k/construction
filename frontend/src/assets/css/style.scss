@@ -15,6 +15,14 @@ body {
 
 ;
 
+a {
+    text-decoration: none;
+    color: $text-color;
+    &:hover {
+    color: $primary-color;
+  }
+  }
+  
 h1 {
     font-size: 4.5em;
 }
@@ -41,10 +49,15 @@ ul {
     }
 }
 
+.small{
+    padding: 10px 15px;
+}
+.large{
+    padding: 15px 20px;
+}
 .btn-primary {
     background-color: $primary-color;
     border: 1px solid $primary-color;
-    padding: 15px 20px;
     font-size: 1em;
     font-weight: 500;
     text-transform: uppercase;
@@ -58,8 +71,6 @@ ul {
 .btn-secondary {
     background-color: $secondary-color;
     border: 1px solid $secondary-color;
-
-    padding: 15px 20px;
     font-size: 1em;
     font-weight: 500;
     text-transform: uppercase;
@@ -78,6 +89,9 @@ header {
             text-transform: uppercase;
             font-weight: 500;
             margin-left: 20px;
+            &:hover{
+                color: $primary-color;
+            }
         }
 
         .Logo {
@@ -115,11 +129,27 @@ footer {
         }
     }
 
-    a {
+    a{
         color: $text-color-white;
         font-size: 1.2em;
         text-decoration: none;
     }
+}
+
+.bg-light {
+    background-color: $light-background-color;
+}
+
+.section-header {
+    span {
+        color: $primary-color;
+        font-size: 1.2em;
+        padding-bottom: 10px;
+        display: block;
+        text-transform: uppercase;
+        font-weight: 500;
+    }
+
 }
 
 
@@ -152,22 +182,6 @@ footer {
         padding-bottom: 10px;
         display: block;
     }
-}
-
-.bg-light {
-    background-color: $light-background-color;
-}
-
-.section-header {
-    span {
-        color: $primary-color;
-        font-size: 1.2em;
-        padding-bottom: 10px;
-        display: block;
-        text-transform: uppercase;
-        font-weight: 500;
-    }
-
 }
 
 .section-3 {
@@ -233,5 +247,52 @@ footer {
     .card{
         border-radius: 40px;
         margin-bottom: 20px;
+    }
+}
+
+.section-5{
+    .swiper{
+        padding: 35px 25px 50px 25px;
+        .swiper-pagination-bullet-active{
+            background-color: $secondary-color;
+        }
+    }
+    .card{
+        border-radius: 40px;
+        .card-body{
+            .ratting{
+                color: $secondary-color;
+            }
+            .content{
+                p{
+                    font-size: 1em;
+                }
+            }
+            .meta{
+                img{
+                    border-radius: 50%;
+                }
+            }
+            .name{
+                font-size: 1.3em;
+                font-weight: 500;
+            }
+        }
+    }
+
+}
+
+.section-6{
+    .card{
+        border-radius: 40px;
+        img{
+            border-top-left-radius: 40px;
+            border-top-right-radius: 40px;
+        }
+        .card-body{
+            a.title{
+                font-size: 1.5em;
+            }
+        }
     }
 }
