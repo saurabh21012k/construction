@@ -4,7 +4,8 @@ $primary-color: #fe538d;
 $secondary-color: #FFB703;
 $text-color: #000;
 $text-color-white: #ffffff;
-$dark-background-color:#222725;
+$dark-background-color: #222725;
+$light-background-color: #9e9b9b;
 
 @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 
@@ -23,29 +24,31 @@ h2 {
 }
 
 h3 {
-    font-size: 2em;
+    font-size: 1.5em;
 }
 
 p {
     font-size: 1.2em;
 }
 
-ul{
-    margin-left:0;
-    padding-left:0;
-    li{
+ul {
+    margin-left: 0;
+    padding-left: 0;
+
+    li {
         list-style: none;
         margin-left: 0;
     }
 }
+
 .btn-primary {
     background-color: $primary-color;
     border: 1px solid $primary-color;
-
     padding: 15px 20px;
     font-size: 1em;
     font-weight: 500;
     text-transform: uppercase;
+
     &:hover {
         background-color: $secondary-color;
         border: 1px solid $secondary-color;
@@ -60,6 +63,7 @@ ul{
     font-size: 1em;
     font-weight: 500;
     text-transform: uppercase;
+
     &:hover {
         background-color: $primary-color;
         border: 1px solid $primary-color;
@@ -90,35 +94,38 @@ header {
     }
 }
 
-footer{
-   background-color: $dark-background-color;
-   color: $text-color-white;
-   h3{
-    font-size: 1.5em;
-   color: $secondary-color;
-   }
-   ul{
-    margin-left:0;
-    padding-left:0;
-    li{
-        padding: 5px 0;
-        list-style: none;
-        margin-left: 0;
-
-    }
-   }
-
-   a{
+footer {
+    background-color: $dark-background-color;
     color: $text-color-white;
-    font-size: 1.2em;
-    text-decoration: none;
-   }
+
+    h3 {
+        font-size: 1.5em;
+        color: $secondary-color;
+    }
+
+    ul {
+        margin-left: 0;
+        padding-left: 0;
+
+        li {
+            padding: 5px 0;
+            list-style: none;
+            margin-left: 0;
+
+        }
+    }
+
+    a {
+        color: $text-color-white;
+        font-size: 1.2em;
+        text-decoration: none;
+    }
 }
 
 
 .section-1 {
     .hero {
-        background: linear-gradient(to right, rgba(0,0,0,0.8), rgba(0,0,0,0)),url('../images/hero.jpg');
+        background: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0)), url('../images/hero.jpg');
         min-height: 800px;
         color: $text-color-white;
 
@@ -128,46 +135,103 @@ footer{
             font-weight: 500;
         }
 
-        .btn-primary {
-            background-color: $primary-color;
-            border: 1px solid $primary-color;
 
-            padding: 15px 20px;
-            font-size: 1em;
-            font-weight: 500;
-            text-transform: uppercase;
-            &:hover {
-                background-color: $secondary-color;
-                border: 1px solid $secondary-color;
+    }
+}
+
+.section-2 {
+    img {
+        border-radius: 40px;
+    }
+
+    span {
+        color: $primary-color;
+        font-size: 1.2em;
+        font-weight: 500;
+        text-transform: uppercase;
+        padding-bottom: 10px;
+        display: block;
+    }
+}
+
+.bg-light {
+    background-color: $light-background-color;
+}
+
+.section-header {
+    span {
+        color: $primary-color;
+        font-size: 1.2em;
+        padding-bottom: 10px;
+        display: block;
+        text-transform: uppercase;
+        font-weight: 500;
+    }
+
+}
+
+.section-3 {
+
+    .item {
+        position: relative;
+        overflow: hidden;
+        align-items: center;
+        color: $text-color-white;
+        margin-bottom: 20px;
+        &:hover{
+            .service-body{
+                transform: translateY(0%);
+                .service-content{
+                    opacity: 1;
+                }
+
             }
         }
 
-        .btn-secondary {
-            background-color: $secondary-color;
-            border: 1px solid $secondary-color;
+        .service-image {
+            position: relative;
+            overflow: hidden;
 
-            padding: 15px 20px;
-            font-size: 1em;
-            font-weight: 500;
-            text-transform: uppercase;
-            &:hover {
-                background-color: $primary-color;
-                border: 1px solid $primary-color;
+            img {
+                width: 100%;
+                border-radius: 40px;
+                aspect-ratio: 1/1.2;
+                object-fit: cover;
+            }
+            &::after{
+                content:"";
+                position: absolute;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                right: 0;
+                border-radius: 40px;
+                background:linear-gradient(180deg, rgba(217,217,217,0)0%,
+                rgba(217,217,217,0)13.02%,rgba(0,0,0,0.51)42.5%
+                ,rgba(0,0,0,0.63)70%,#000000 100%);
+            }
+        }
+
+        .service-body {
+            position: absolute;
+            left: 30px;
+            right: 30px;
+            bottom: 30px;
+            transform: translateY(80%);
+            transition: all 0.4s ease-in-out;
+            text-align: center;
+
+            .service-content{
+                transition:  all 0.4s ease-in-out;
+                opacity: 0;
             }
         }
     }
 }
 
-.section-2{
-    img{
+.section-4{
+    .card{
         border-radius: 40px;
-    }
-    span{
-        color: $primary-color;
-        font-size: 1.2en;
-        font-weight: 500;
-        text-transform: uppercase;
-        padding-bottom: 10px;
-        display: block;
+        margin-bottom: 20px;
     }
 }

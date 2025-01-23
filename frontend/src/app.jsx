@@ -1,7 +1,7 @@
 import { useState } from 'preact/hooks'
-import './assets/css/style.scss';
+import 'bootstrap/dist/css/bootstrap.min.css'; // First import Bootstrap
+import './assets/css/style.scss'; // Then import your custom styles
 
-import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from './componants/frontend/Home';
 import About from './componants/frontend/About';
