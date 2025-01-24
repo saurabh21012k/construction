@@ -80,6 +80,11 @@ ul {
         border: 1px solid $primary-color;
     }
 }
+.btn-container {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
 
 header {
     nav {
@@ -340,5 +345,29 @@ footer {
 .section-9{
     .card{
         border-radius: 40px;
+    }
+}
+
+.login-form{
+    .card{
+        width: 450px;
+    }
+}
+
+.dashboard{
+    .card{
+        min-height: 400px;
+    }
+}
+
+.sidebar{
+    ul{
+        li{
+            a{
+                display: block;
+                padding:  10px 10px;
+                border-bottom: 1px solid rgba(0,0,0,0.20);
+            }
+        }
     }
 }
