@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import {AuthContext} from'../backend/context/Auth';
+import { Link } from "react-router-dom";
 
 
 function Sidebar() {
@@ -9,10 +10,10 @@ function Sidebar() {
         <div className="card-body  p-3 sidebar">
           <h4>Sidebar</h4>
           <ul>
-            <li><a href="#">Dashboard</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Projects</a></li>
-            <li><a href="#">Articals</a></li>
+            <li><Link to="/admin/dashboard">Dashboard</Link></li>
+            <li><Link to="/admin/services">Services</Link></li>
+            <li><Link to="/admin/projects">Projects</Link></li>
+            <li><Link to="/admin/articals">Articals</Link></li>
             <li>
                 <button onClick={logout} className="btn btn-primary mt-3">Logout</button>
             </li>
