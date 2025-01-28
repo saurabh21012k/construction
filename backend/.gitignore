@@ -21,3 +21,19 @@ yarn-error.log
 /.nova
 /.vscode
 /.zed
+
+# Ignore all files in uploads folder but keep folder structure
+/public/uploads/projects/large/*
+/public/uploads/projects/small/*
+/public/uploads/services/large/*
+/public/uploads/services/small/*
+/public/uploads/temp/thumbnail/*
+/public/uploads/temp/*
+
+# Allow .gitkeep to preserve folder structure
+!/public/uploads/projects/large/.gitkeep
+!/public/uploads/projects/small/.gitkeep
+!/public/uploads/services/large/.gitkeep
+!/public/uploads/services/small/.gitkeep
+!/public/uploads/temp/thumbnail/.gitkeep
+!/public/uploads/temp/.gitkeep

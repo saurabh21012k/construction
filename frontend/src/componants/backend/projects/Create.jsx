@@ -1,12 +1,12 @@
 import React, { useState, useRef, useMemo } from "react";
-import Sidebar from "../../common/Sidebar";
 import Header from "../../common/Header";
-import Footer from "../../common/Footer";
+import Sidebar from "../../common/Sidebar";
 import { Link, useNavigate } from "react-router-dom";
-import { useForm } from "react-hook-form";
+import JoditEditor from "jodit-react";
+import Footer from "../../common/Footer";
 import { apiUrl, token } from "../../common/http";
 import { toast } from "react-toastify";
-import JoditEditor from "jodit-react";
+import { useForm } from "react-hook-form";
 
 function Create(placeholder) {
   const editor = useRef(null);
@@ -30,10 +30,9 @@ function Create(placeholder) {
   } = useForm();
 
   const navigate = useNavigate();
-
   const onSubmit = async (data) => {
     const newData = { ...data, content: content, imageId: imageId };
-    const res = await fetch(apiUrl + "services", {
+    const res = await fetch(apiUrl + "projects", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
@@ -46,7 +45,7 @@ function Create(placeholder) {
     const result = await res.json();
     if (result.status == true) {
       toast.success(result.message);
-      navigate("/admin/services");
+      navigate("/admin/projects");
     } else {
       toast.error(result.message);
     }
@@ -57,6 +56,7 @@ function Create(placeholder) {
     const file = e.target.files[0];
     formData.append("image", file);
     setIsDisable(true);
+    
 
     await fetch(apiUrl + "temp-images", {
       method: "POST",
@@ -76,6 +76,7 @@ function Create(placeholder) {
         }
       });
   };
+
   return (
     <>
       <Header />
@@ -91,8 +92,8 @@ function Create(placeholder) {
               <div className="card shadow border-0">
                 <div className="card-body p-4">
                   <div className="d-flex justify-content-between">
-                    <h4 className="h5">Services / Create</h4>
-                    <Link to="/admin/services" className="btn btn-primary">
+                    <h4 className="h5">Project / Create</h4>
+                    <Link to="/admin/projects" className="btn btn-primary">
                       Back
                     </Link>
                   </div>
@@ -117,22 +118,94 @@ function Create(placeholder) {
                       )}
                     </div>
                     <div className="mb-3">
-                    <label className="form-label">Slug</label>
-<input
-  placeholder="Slug"
-  {...register("slug", {
-    required: "The Slug field is required",
-  })}
-  type="text"
-  className={`form-control ${errors.slug ? "is-invalid" : ""}`}
-/>
-{errors.slug && (
-  <p className="invalid-feedback">
-    {errors.slug?.message}
-  </p>
-)}
-
+                      <label className="form-label">Slug</label>
+                      <input
+                        placeholder="Slug"
+                        {...register("slug", {
+                          required: "The Slug field is required",
+                        })}
+                        type="text"
+                        className={`form-control ${
+                          errors.slug ? "is-invalid" : ""
+                        }`}
+                      />
+                      {errors.slug && (
+                        <p className="invalid-feedback">
+                          {errors.slug?.message}
+                        </p>
+                      )}
                     </div>
+
+                    <div className="row">
+                      <div className="col-md-6">
+                        <div className="mb-3">
+                          <label className="form-label">Location</label>
+                          <input
+                            placeholder="Location"
+                            {...register("location")}
+                            type="text"
+                            className={"form-control"}
+                          />
+                        </div>
+                      </div>
+                      <div className="col-md-6">
+                        <div className="mb-3">
+                          <label className="form-label">
+                            Construction-Type
+                          </label>
+
+                          <select
+                            className="form-control"
+                            {...register("construction_type")}
+                          >
+                            <option value="">Construction Type</option>
+                            <option value="Residential Construction">
+                              Residential Construction{" "}
+                            </option>
+                            <option value="Commercial Construction">
+                              Commercial Construction{" "}
+                            </option>
+                            <option value="Industrial Construction">
+                              Industrial Construction{" "}
+                            </option>
+                            <option value="Infrastructure Construction">
+                              Infrastructure Construction{" "}
+                            </option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="row">
+                      <div className="col-md-6">
+                        <div className="mb-3">
+                          <label className="form-label">Sector</label>
+
+                          <select
+                            className="form-control"
+                            {...register("sector")}
+                          >
+                            <option value="">Select a sector</option>
+                            <option value="Health">Health </option>
+                            <option value="Education">Education </option>
+                            <option value="Corporate">Corporate </option>
+                          </select>
+                        </div>
+                      </div>
+
+                      <div className="col-md-6">
+                        <label className="form-label">Status</label>
+
+                        <select
+                          className="form-control"
+                          {...register("status")}
+                        >
+                          <option value="1">Active</option>
+                          <option value="2">Block</option>
+                        </select>
+                      </div>
+                    </div>
+
                     <div className="mb-3">
                       <label className="form-label">Short Description</label>
                       <textarea
@@ -161,13 +234,6 @@ function Create(placeholder) {
                     </div>
 
                     <div className="mb-3">
-                      <label className="form-label">Status</label>
-
-                      <select className="form-control" {...register("status")}>
-                        <option value="1">Active</option>
-                        <option value="2">Block</option>
-                      </select>
-
                       <button disabled={isDisable} className="btn btn-primary">
                         Submit{" "}
                       </button>

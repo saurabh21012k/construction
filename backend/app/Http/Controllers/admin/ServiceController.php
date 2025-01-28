@@ -16,7 +16,7 @@ use function Laravel\Prompts\error;
 
 class ServiceController extends Controller
 {
-    /**
+    /** 
      * Display a listing of the resource.
      */
     public function index()
@@ -37,6 +37,7 @@ class ServiceController extends Controller
      */
     public function store(Request $request)
     {
+        $request->merge(['slug'=>Str::slug($request->slug)]);
         $validator = Validator::make($request->all(), [
             'title' => 'required',
             'slug' => 'required|unique:services,slug'
@@ -135,6 +136,7 @@ class ServiceController extends Controller
             ]);
         };
 
+        $request->merge(['slug'=>Str::slug($request->slug)]);
         $validator = Validator::make($request->all(), [
             'title' => 'required',
             'slug' => 'required|unique:services,slug,' . $id . ',id'
@@ -208,6 +210,8 @@ class ServiceController extends Controller
                 'message' => 'Service not found'
             ]);
         };
+        File::delete(public_path('uploads/projects/large/') . $service->image);
+        File::delete(public_path('uploads/projects/small/') . $service->image);
 
         $service->delete();
 

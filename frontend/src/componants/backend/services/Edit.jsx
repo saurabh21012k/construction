@@ -79,6 +79,7 @@ const handleFile = async(e) =>{
     const formData = new FormData();
     const file = e.target.files[0];
     formData.append("image",file);
+    setIsDisable(true);
 
     await fetch(apiUrl + "temp-images", {
         'method': 'POST',
@@ -90,6 +91,7 @@ const handleFile = async(e) =>{
         body: formData,
       }).then(responce=>responce.json())
       .then(result=>{
+        setIsDisable(false);
         if (result.status==false){          
             toast.error(result.errors.image[0 ])
         }else{
