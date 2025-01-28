@@ -55,6 +55,11 @@ ul {
 .large{
     padding: 15px 20px;
 }
+.image-fit{
+  width: 50%;
+  height: auto;
+  object-fit: contain;
+}
 .btn-primary {
     background-color: $primary-color;
     border: 1px solid $primary-color;
