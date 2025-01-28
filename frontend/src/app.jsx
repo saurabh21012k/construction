@@ -16,6 +16,7 @@ import Dashboard from "./componants/backend/Dashboard";
 import RequireAuth from "./componants/common/RequireAuth";
 import {default as ShowServices} from "./componants/backend/services/Show";
 import {default as CreateServices} from "./componants/backend/services/Create";
+import {default as EditServices} from "./componants/backend/services/Edit";
 
 export function App() {
   const [count, setCount] = useState(0);
@@ -52,6 +53,14 @@ export function App() {
             element={
               <RequireAuth>
                 <CreateServices/>
+              </RequireAuth>
+            }
+          />
+          <Route
+            path="/admin/services/edit/:id"
+            element={
+              <RequireAuth>
+                <EditServices/>
               </RequireAuth>
             }
           />
