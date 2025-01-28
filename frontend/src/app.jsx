@@ -31,7 +31,7 @@ export function App() {
           <Route path="/projects" element={<Projects />} />
           <Route path="/blogs" element={<Blogs />} />
           <Route path="/contact-us" element={<ContactUs />} />
-          <Route path="/admin/login" element={<Login />} />
+          <Route path="/admin/login" element={<Login  />} />
           <Route
             path="/admin/dashboard"
             element={
