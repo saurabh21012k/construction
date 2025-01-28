@@ -1,22 +1,24 @@
-import React, { useState, useRef, useMemo } from "react";
-import Sidebar from "../../common/Sidebar";
-import Header from "../../common/Header";
-import Footer from "../../common/Footer";
-import { Link, useNavigate } from "react-router-dom";
-import { useForm } from "react-hook-form";
-import { apiUrl, token } from "../../common/http";
+import React, { useMemo, useRef, useState } from 'react'
+import Footer from '../../common/Footer'
+import JoditEditor from 'jodit-react'
+import Sidebar from '../../common/Sidebar'
+import Header from '../../common/Header'
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
-import JoditEditor from "jodit-react";
+import { apiUrl,fileUrl, token } from "../../common/http";
+import { useForm } from 'react-hook-form'
 
-function Create(placeholder) {
-  const editor = useRef(null);
+function Edit(placeholder) {
+    const editor = useRef(null);
   const [content, setContent] = useState("");
+  const [service, setService] = useState("");
   const [isDisable, setIsDisable] = useState(false);
   const [imageId, setImageId] = useState(null);
+  const params = useParams();
   const config = useMemo(
     () => ({
       readonly: false, // all options from https://xdsoft.net/jodit/docs/,
-      placeholder: placeholder?.placeholder || "Content", 
+      placeholder: placeholder?.placeholder || "", 
       language: "en", 
     }),
     [placeholder]
@@ -27,33 +29,53 @@ function Create(placeholder) {
     handleSubmit,
     watch,
     formState: { errors },
-  } = useForm();
+  } = useForm({
+    defaultValues:async () => {
+        const res = await fetch(apiUrl + "services/"+params.id, {
+            'method': 'GET',
+            'headers': {
+              'Content-type': "application/json",
+              'Accept': "application/json",
+              'Authorization': `Bearer ${token()}`,
+            },
+          });
+      
+          const result = await res.json();
+          setContent(result.data.content);
+          setService(result.data);
+          return{
+            title:result.data.title,
+            slug:result.data.slug,
+            short_desc:result.data.short_desc,
+            status:result.data.status,
+          }
+
+    }
+  });
 
   const navigate = useNavigate();
-
   const onSubmit = async (data) => {
-    const newData = { ...data, "content":content, "imageId":imageId}
-    const res = await fetch(apiUrl + "services", {
-      'method': 'POST',
-      'headers': {
-        'Content-type': "application/json",
-        'Accept': "application/json",
-        'Authorization': `Bearer ${token()}`,
-      },
-      body: JSON.stringify(newData),
-    });
-
-    const result = await res.json();
-    if (result.status == true) {
-        
-      toast.success(result.message);
-      navigate("/admin/services");
-    } else {
-      toast.error(result.message);
-    }
-  };
-
-  const handleFile = async(e) =>{
+      const newData = { ...data, "content":content, "imageId":imageId}
+      const res = await fetch(apiUrl + "services/" + params.id, {
+        'method': 'put',
+        'headers': {
+          'Content-type': "application/json",
+          'Accept': "application/json",
+          'Authorization': `Bearer ${token()}`,
+        },
+        body: JSON.stringify(newData),
+      });
+  
+      const result = await res.json();
+      if (result.status == true) {
+          
+        toast.success(result.message);
+        navigate("/admin/services");
+      } else {
+        toast.error(result.message);
+      }
+    };
+const handleFile = async(e) =>{
     const formData = new FormData();
     const file = e.target.files[0];
     formData.append("image",file);
@@ -77,6 +99,7 @@ function Create(placeholder) {
       });
 
   }
+
   return (
     <>
       <Header />
@@ -92,7 +115,7 @@ function Create(placeholder) {
               <div className="card shadow border-0">
                 <div className="card-body p-4">
                   <div className="d-flex justify-content-between">
-                    <h4 className="h5">Services / Create</h4>
+                    <h4 className="h5">Services / Edit</h4>
                     <Link to="/admin/services" className="btn btn-primary">
                       Back
                     </Link>
@@ -169,10 +192,13 @@ function Create(placeholder) {
                         Image
                       </label>
                       <br/>
-                      <input onChange={handleFile} type="file"></input>
-
-                      
+                      <input onChange={handleFile} type="file"></input>                      
                     </div>
+                  <div className='pb-3'>
+                    {
+                        service.image && <img src={fileUrl+'uploads/services/small/'+service.image} alt="" className='image-fit'/>
+                    }
+                  </div>
 
                     <div className="mb-3">
                       <label className="form-label">
@@ -184,7 +210,7 @@ function Create(placeholder) {
                         <option value="2">Block</option>
                       </select>
 
-                      <button disabled={isDisable} className="btn btn-primary">Submit </button>
+                      <button disabled={isDisable} className="mt-2 btn btn-primary">Update </button>
                     </div>
                   </form>
                 </div>
@@ -195,7 +221,7 @@ function Create(placeholder) {
       </main>
       <Footer />
     </>
-  );
+  )
 }
 
-export default Create;
+export default Edit
