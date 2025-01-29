@@ -9,7 +9,6 @@ function LatestProjects() {
       method: "GET",
     });
     const result = await res.json();
-    console.log(result)
     if(result.status == true){
       setProjects(result.data);
     }

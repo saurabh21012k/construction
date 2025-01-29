@@ -20,6 +20,9 @@ import {default as EditServices} from "./componants/backend/services/Edit";
 import {default as ShowProjects} from "./componants/backend/projects/Show";
 import {default as CreateProjects} from "./componants/backend/projects/Create";
 import {default as EditProjects} from "./componants/backend/projects/Edit";
+import {default as ShowArticles} from "./componants/backend/articles/Show";
+import {default as CreateArticles} from "./componants/backend/articles/Create";
+import {default as EditArticles} from "./componants/backend/articles/Edit";
 
 export function App() {
   const [count, setCount] = useState(0);
@@ -91,6 +94,33 @@ export function App() {
               </RequireAuth>
             }
           />
+
+          <Route
+            path="/admin/articles"
+            element={
+              <RequireAuth>
+                <ShowArticles/>
+              </RequireAuth>
+            }
+          />
+          <Route
+            path="/admin/articles/create"
+            element={
+              <RequireAuth>
+                <CreateArticles/>
+              </RequireAuth>
+            }
+          />
+          <Route
+            path="/admin/articles/edit/:id"
+            element={
+              <RequireAuth>
+                <EditArticles/>
+              </RequireAuth>
+            }
+          />
+
+
         </Routes>
       </BrowserRouter>
       <ToastContainer position="top-center" />

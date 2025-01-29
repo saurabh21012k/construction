@@ -7,10 +7,10 @@ import { apiUrl, token } from '../../common/http';
 import { toast } from 'react-toastify';
 
 const Show = () => {
-  const [projects, setProjects] = useState([]);
+  const [articles, SetArticles] = useState([]);
   
-    const fetchProjects = async () => {
-      const res = await fetch(apiUrl + "projects", {
+    const fetchArticless = async () => {
+      const res = await fetch(apiUrl + "articles", {
 
         'method': "GET",
         'headers': {
@@ -20,13 +20,13 @@ const Show = () => {
         },
       });
       const result = await res.json();
-      setProjects(result.data);
+      SetArticles(result.data);
     } 
 
-    const deleteProject=async(id) =>{
+    const deleteArticle=async(id) =>{
         if(confirm("Are you sure? confirm delete project"))
             {
-            const res = await fetch(apiUrl + 'projects/'+id, {
+            const res = await fetch(apiUrl + 'articles/'+id, {
                 'method': "DELETE",
                 'headers': {
                   "Content-type": "application/json",
@@ -38,8 +38,8 @@ const Show = () => {
               const result = await res.json();
     
               if (result.status == true){
-                const newProjects = projects.filter(project => project.id != id)
-                setProjects(newProjects);
+                const newArticles = articles.filter(article => article.id != id)
+                SetArticles(newArticles);
                 toast.success(result.message)
               }else{
                 toast.error(result.message)
@@ -49,7 +49,7 @@ const Show = () => {
     }
     
     useEffect(()=>{
-       fetchProjects();
+      fetchArticless();
     },[])
   return (
     <>
@@ -66,8 +66,8 @@ const Show = () => {
               <div className="card shadow border-0">
                 <div className="card-body p-4">
                   <div className="d-flex justify-content-between">
-                    <h4 className="h5">projects</h4>
-                    <Link to="/admin/projects/create" className="btn btn-primary">
+                    <h4 className="h5">Articles</h4>
+                    <Link to="/admin/articles/create" className="btn btn-primary">
                        Create
                     </Link>
                   </div>
@@ -77,33 +77,33 @@ const Show = () => {
                       <tr >
                         <th>ID</th>
                         <th>Name</th>
-                        <th>Slug</th>
+                        {/* <th>Slug</th> */}
                         <th>Status</th>
                         <th>Action</th>
                       </tr>
                     </thead>
                     <tbody>
-                      {projects &&
-                        projects.map((project) => {
+                      {articles &&
+                        articles.map((article) => {
                           return (
-                            <tr key={`project-${project.id}`}>
-                              <td>{project.id}</td>
-                              <td>{project.title}</td>
-                              <td>{project.slug}</td>
+                            <tr key={`article-${article.id}`}>
+                              <td>{article.id}</td>
+                              <td>{article.title}</td>
+                              {/* <td>{article.slug}</td> */}
                               <td>
-                                {project.status == 1 ? "Active" : "Block"}
+                                {article.status == 1 ? "Active" : "Block"}
                               </td>
                               <td>
                               
                                 <Link
-                                to={`/admin/projects/edit/${project.id}`}
+                                to={`/admin/articles/edit/${article.id}`}
                                   className="btn btn-primary btn-sm ms-2"
                                 >
                                   Edit
                                 </Link>
                                 <Link
-                                onClick={()=>deleteProject(project.id)}
-                                  to="/admin/projects"
+                                onClick={()=>deleteArticle(article.id)}
+                                  to="/admin/articles"
                                   className="btn btn-secondary btn-sm ms-2"
                                 >
                                   Delete

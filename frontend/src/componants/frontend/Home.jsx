@@ -16,6 +16,8 @@ import 'swiper/css/pagination';
 import About from "../common/About";
 import LatestServices from "../common/LatestServices";
 import LatestProjects from "../common/LatestProjects";
+import { Link } from "react-router-dom";
+import LatestArticles from "../common/LatestArticles";
 
 const Home = () => {
 
@@ -44,7 +46,7 @@ const Home = () => {
                 </p>
                 <div className="mt-4">
                   <a className="btn btn-primary large">Contact now</a>
-                  <a className="btn btn-secondary ms-2 large">View Projects</a>
+                  <Link to='/projects' className="btn btn-secondary ms-2 large">View Projects</Link>
                 </div>
               </div>
             </div>
@@ -436,7 +438,11 @@ const Home = () => {
         </Swiper>
       </section>
 
-      <section className="section-6 bg-light py-5">
+
+           {/* Articles */}
+
+           <LatestArticles/>
+      {/* <section className="section-6 bg-light py-5">
         <div className="container">
         <div className="section-header text-center mb-4">
             <span>Blog and News</span>
@@ -497,7 +503,7 @@ const Home = () => {
 
         </div>
 
-      </section>
+      </section> */}
 
       <Footer />
     </>
