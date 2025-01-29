@@ -14,15 +14,18 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Dashboard from "./componants/backend/Dashboard";
 import RequireAuth from "./componants/common/RequireAuth";
-import {default as ShowServices} from "./componants/backend/services/Show";
-import {default as CreateServices} from "./componants/backend/services/Create";
-import {default as EditServices} from "./componants/backend/services/Edit";
-import {default as ShowProjects} from "./componants/backend/projects/Show";
-import {default as CreateProjects} from "./componants/backend/projects/Create";
-import {default as EditProjects} from "./componants/backend/projects/Edit";
-import {default as ShowArticles} from "./componants/backend/articles/Show";
-import {default as CreateArticles} from "./componants/backend/articles/Create";
-import {default as EditArticles} from "./componants/backend/articles/Edit";
+import { default as ShowServices } from "./componants/backend/services/Show";
+import { default as CreateServices } from "./componants/backend/services/Create";
+import { default as EditServices } from "./componants/backend/services/Edit";
+import { default as ShowProjects } from "./componants/backend/projects/Show";
+import { default as CreateProjects } from "./componants/backend/projects/Create";
+import { default as EditProjects } from "./componants/backend/projects/Edit";
+import { default as ShowArticles } from "./componants/backend/articles/Show";
+import { default as CreateArticles } from "./componants/backend/articles/Create";
+import { default as EditArticles } from "./componants/backend/articles/Edit";
+import { default as ShowTestimonial} from "./componants/backend/testimonial/Show";
+import { default as CreateTestimonial } from "./componants/backend/testimonial/Create";
+import { default as EditTestimonial } from "./componants/backend/testimonial/Edit";
 
 export function App() {
   const [count, setCount] = useState(0);
@@ -37,7 +40,7 @@ export function App() {
           <Route path="/projects" element={<Projects />} />
           <Route path="/blogs" element={<Blogs />} />
           <Route path="/contact-us" element={<ContactUs />} />
-          <Route path="/admin/login" element={<Login  />} />
+          <Route path="/admin/login" element={<Login />} />
           <Route
             path="/admin/dashboard"
             element={
@@ -50,7 +53,7 @@ export function App() {
             path="/admin/services"
             element={
               <RequireAuth>
-                <ShowServices/>
+                <ShowServices />
               </RequireAuth>
             }
           />
@@ -58,7 +61,7 @@ export function App() {
             path="/admin/services/create"
             element={
               <RequireAuth>
-                <CreateServices/>
+                <CreateServices />
               </RequireAuth>
             }
           />
@@ -66,15 +69,15 @@ export function App() {
             path="/admin/services/edit/:id"
             element={
               <RequireAuth>
-                <EditServices/>
+                <EditServices />
               </RequireAuth>
             }
           />
-            <Route
+          <Route
             path="/admin/projects"
             element={
               <RequireAuth>
-                <ShowProjects/>
+                <ShowProjects />
               </RequireAuth>
             }
           />
@@ -82,7 +85,7 @@ export function App() {
             path="/admin/projects/create"
             element={
               <RequireAuth>
-                <CreateProjects/>
+                <CreateProjects />
               </RequireAuth>
             }
           />
@@ -90,7 +93,7 @@ export function App() {
             path="/admin/projects/edit/:id"
             element={
               <RequireAuth>
-                <EditProjects/>
+                <EditProjects />
               </RequireAuth>
             }
           />
@@ -99,7 +102,7 @@ export function App() {
             path="/admin/articles"
             element={
               <RequireAuth>
-                <ShowArticles/>
+                <ShowArticles />
               </RequireAuth>
             }
           />
@@ -107,7 +110,7 @@ export function App() {
             path="/admin/articles/create"
             element={
               <RequireAuth>
-                <CreateArticles/>
+                <CreateArticles />
               </RequireAuth>
             }
           />
@@ -115,12 +118,35 @@ export function App() {
             path="/admin/articles/edit/:id"
             element={
               <RequireAuth>
-                <EditArticles/>
+                <EditArticles />
               </RequireAuth>
             }
           />
 
-
+          <Route
+            path="/admin/testimonial"
+            element={
+              <RequireAuth>
+                <ShowTestimonial />
+              </RequireAuth>
+            }
+          />
+          <Route
+            path="/admin/testimonial/create"
+            element={
+              <RequireAuth>
+                <CreateTestimonial />
+              </RequireAuth>
+            }
+          />
+          <Route
+            path="/admin/testimonial/edit/:id"
+            element={
+              <RequireAuth>
+                <EditTestimonial />
+              </RequireAuth>
+            }
+          />
         </Routes>
       </BrowserRouter>
       <ToastContainer position="top-center" />

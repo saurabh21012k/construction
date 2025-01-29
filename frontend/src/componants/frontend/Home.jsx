@@ -3,8 +3,6 @@ import React, { useEffect, useState } from "react";
 
 import Header from "../common/Header";
 import Footer from "../common/Footer";
-import ProjectImg from "../../assets/images/construction3.jpg";
-import BlogImg from "../../assets/images/construction4.jpg";
 import Icon1 from "../../assets/images/icon-1.svg";
 import Icon2 from "../../assets/images/icon-2.svg";
 import Icon3 from "../../assets/images/icon-3.svg";
@@ -18,6 +16,7 @@ import LatestServices from "../common/LatestServices";
 import LatestProjects from "../common/LatestProjects";
 import { Link } from "react-router-dom";
 import LatestArticles from "../common/LatestArticles";
+import ShowTestimonial from "../common/ShowTestimonial";
 
 const Home = () => {
 
@@ -133,7 +132,9 @@ const Home = () => {
      <LatestProjects/>
      
       {/* Testiminials */}
-      <section className="section-5 py-5">
+      <ShowTestimonial/>
+
+      {/* <section className="section-5 py-5">
         <div className="container">
           <div className="section-header text-center mb-4">
             <span>Testimonials</span>
@@ -436,7 +437,7 @@ const Home = () => {
             </div>
           </SwiperSlide>
         </Swiper>
-      </section>
+      </section> */}
 
 
            {/* Articles */}

@@ -5,10 +5,12 @@ use App\Http\Controllers\admin\DashboardController;
 use App\Http\Controllers\admin\ProjectController;
 use App\Http\Controllers\admin\ServiceController;
 use App\Http\Controllers\admin\TempImageController;
+use App\Http\Controllers\admin\TestimonialController;
 use App\Http\Controllers\AuthenticationController;
 use App\Http\Controllers\front\ArticleController as FrontArticleController;
 use App\Http\Controllers\front\ProjectController as FrontProjectController;
 use App\Http\Controllers\front\ServiceController as FrontServiceController;
+use App\Http\Controllers\front\TestimonialController as FrontTestimonialController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -24,6 +26,8 @@ Route::get('get-projects', [FrontProjectController::class, 'allProjects']);
 Route::get('get-latest-projects', [FrontProjectController::class, 'latestProjects']);
 Route::get('get-articles', [FrontArticleController::class, 'AllArticles']);
 Route::get('get-latest-articles', [FrontArticleController::class, 'LatestArticles']);
+Route::get('get-testimonial', [FrontTestimonialController::class, 'AllTestimonial']);
+Route::get('get-latest-testimonial', [FrontTestimonialController::class, 'LatestTestimonial']);
 
 
 Route::group(['middleware' => ['auth:sanctum']], function () {
@@ -52,6 +56,13 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::put('articles/{id}', [ArticleController::class, 'update']);
     Route::get('articles/{id}', [ArticleController::class, 'show']);
     Route::delete('articles/{id}', [ArticleController::class, 'destroy']);
+
+    //testimonial Routes
+    Route::post('testimonial', [TestimonialController::class, 'store']);
+    Route::get('testimonial', [TestimonialController::class, 'index']);
+    Route::put('testimonial/{id}', [TestimonialController::class, 'update']);
+    Route::get('testimonial/{id}', [TestimonialController::class, 'show']);
+    Route::delete('testimonial/{id}', [TestimonialController::class, 'destroy']);
 
 
     //Temp image Route

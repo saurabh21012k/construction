@@ -4,6 +4,7 @@ import Footer from "../common/Footer";
 import { default as Aboutnew } from "../common/About";
 import MemberImg from "../../assets/images/author-2.jpg";
 import Hero from "../common/Hero";
+import ShowTestimonial from "../common/ShowTestimonial";
 
 function About() {
   return (
@@ -126,6 +127,8 @@ function About() {
             </div>
           </div>
         </section>
+
+        <ShowTestimonial/>
       </main>
 
       <Footer />

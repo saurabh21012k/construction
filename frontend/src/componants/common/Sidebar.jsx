@@ -14,6 +14,7 @@ function Sidebar() {
             <li><Link to="/admin/services">Services</Link></li>
             <li><Link to="/admin/projects">Projects</Link></li>
             <li><Link to="/admin/articles">Articals</Link></li>
+            <li><Link to="/admin/testimonial">Testimonials</Link></li>
             <li>
                 <button onClick={logout} className="btn btn-primary mt-3">Logout</button>
             </li>

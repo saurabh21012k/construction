@@ -188,7 +188,7 @@ const Edit = (placeholder) => {
                     </div>
                     <div className="pb-3">
                       {article.image && (
-                        <img
+                         <img
                           src={
                             fileUrl + "uploads/articles/small/" + article.image
                           }
