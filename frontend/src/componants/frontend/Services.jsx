@@ -3,6 +3,7 @@ import Footer from "../common/Footer";
 import Header from "../common/Header";
 import Hero from "../common/Hero";
 import { apiUrl, fileUrl } from "../common/http";
+import { Link } from "react-router-dom";
 
 function Services() {
  const[services, setServices] = useState([]);
@@ -60,9 +61,9 @@ function Services() {
                                                       {service.short_desc}
                                                     </p>
                                                   </div>
-                                                  <a href="#" className="btn btn-primary small">
+                                                  <Link to={`/service/${service.id}`} className="btn btn-primary small">
                                                     Read more
-                                                  </a>
+                                                  </Link>
                                                 </div>
                                               </div>
                                             </div>

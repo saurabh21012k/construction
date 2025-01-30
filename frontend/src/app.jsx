@@ -29,7 +29,9 @@ import { default as EditTestimonial } from "./componants/backend/testimonial/Edi
 import { default as ShowMember } from "./componants/backend/members/Show";
 import { default as CreateMember } from "./componants/backend/members/Create";
 import { default as EditMember } from "./componants/backend/members/Edit";
-import Member from "./componants/common/Member";
+import ServiceDetails from "./componants/frontend/ServiceDetails";
+import ProjectDetails from "./componants/frontend/ProjectDetails";
+import BlogDetails from "./componants/frontend/BlogDetails";
 
 export function App() {
   const [count, setCount] = useState(0);
@@ -45,7 +47,9 @@ export function App() {
           <Route path="/blogs" element={<Blogs />} />
           <Route path="/contact-us" element={<ContactUs />} />
           <Route path="/admin/login" element={<Login />} />
-          <Route path="/member" element={<Member />} />
+          <Route path="/service/:id" element={<ServiceDetails />} />
+          <Route path="/project/:id" element={<ProjectDetails />} />
+          <Route path="/article/:id" element={<BlogDetails />} />
           
           
           <Route
@@ -179,6 +183,7 @@ export function App() {
               </RequireAuth>
             }
           />
+          
           
         </Routes>
       </BrowserRouter>

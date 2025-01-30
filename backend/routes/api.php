@@ -31,6 +31,9 @@ Route::get('get-latest-articles', [FrontArticleController::class, 'LatestArticle
 Route::get('get-testimonial', [FrontTestimonialController::class, 'AllTestimonial']);
 Route::get('get-latest-testimonial', [FrontTestimonialController::class, 'LatestTestimonial']);
 Route::get('get-members', [FrontMemberController::class, 'AllMembers']);
+Route::get('get-services/{id}', [FrontServiceController::class, 'show']);
+Route::get('get-projects/{id}', [FrontProjectController::class, 'show']);
+Route::get('get-articles/{id}', [FrontArticleController::class, 'show']);
 
 
 

@@ -4,6 +4,7 @@ import { apiUrl, fileUrl } from "../common/http";
 import Header from "../common/Header";
 import Hero from "../common/Hero";
 import Footer from "../common/Footer";
+import { Link } from "react-router-dom";
 
 
 
@@ -60,9 +61,9 @@ const Blogs = () => {
                                    </div>
                                    <div className="card-body p-5">
                                        <div className="mb-3">
-                                       <h3>{article.title}</h3>
+                                       <Link to= {`/article/${article.id}`} className="title" >{article.title}</Link>
                                        </div>
-                                       <a href="#" className="btn btn-primary small"> Read More</a>
+                                       <Link to= {`/article/${article.id}`}className="btn btn-primary small">Read More</Link>
                                    </div>
                    
                                  </div>

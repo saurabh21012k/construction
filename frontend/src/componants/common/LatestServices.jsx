@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { apiUrl, fileUrl } from "../common/http";
+import { Link } from 'react-router-dom';
 
 function LatestServices() {
 
@@ -48,9 +49,9 @@ function LatestServices() {
                                     {service.short_desc}
                                   </p>
                                 </div>
-                                <a href="#" className="btn btn-primary small">
+                                <Link to={`/service/${service.id}`} className="btn btn-primary small">
                                   Read more
-                                </a>
+                                </Link>
                               </div>
                             </div>
                           </div>
