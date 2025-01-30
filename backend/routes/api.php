@@ -9,6 +9,7 @@ use App\Http\Controllers\admin\TempImageController;
 use App\Http\Controllers\admin\TestimonialController;
 use App\Http\Controllers\AuthenticationController;
 use App\Http\Controllers\front\ArticleController as FrontArticleController;
+use App\Http\Controllers\front\ContactController;
 use App\Http\Controllers\front\MemberController as FrontMemberController;
 use App\Http\Controllers\front\ProjectController as FrontProjectController;
 use App\Http\Controllers\front\ServiceController as FrontServiceController;
@@ -34,6 +35,7 @@ Route::get('get-members', [FrontMemberController::class, 'AllMembers']);
 Route::get('get-services/{id}', [FrontServiceController::class, 'show']);
 Route::get('get-projects/{id}', [FrontProjectController::class, 'show']);
 Route::get('get-articles/{id}', [FrontArticleController::class, 'show']);
+Route::post('contact-now', [ContactController::class, 'index']);
 
 
 

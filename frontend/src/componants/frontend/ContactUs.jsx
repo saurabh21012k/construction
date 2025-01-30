@@ -2,8 +2,39 @@ import React from "react";
 import Header from "../common/Header";
 import Footer from "../common/Footer";
 import Hero from "../common/Hero";
+import { useForm } from "react-hook-form";
+import { apiUrl } from "../common/http";
 
 function ContactUs() {
+  const {
+    register,
+    handleSubmit,
+    watch,
+    reset,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = async(data) =>{
+  const res = await fetch(apiUrl + 'contact-now',{
+      method : 'POST',
+      headers :{
+        'Content-type' : 'application/json'
+      },
+        body:JSON.stringify(data)
+    });
+    const result = await res.json();
+
+     if(result.status==true){
+          toast.success(result.message);
+          reset();
+        }
+        else{
+          toast.error(result.message);
+          }
+          
+        
+         
+  }
   return (
     <>
       <Header />
@@ -62,29 +93,53 @@ function ContactUs() {
               <div className="col-md-9">
                 <div className="card shadow border-0">
                   <div className="card-body p-5">
-                    <form action="">
+                    <form onSubmit={handleSubmit(onsubmit)}>
                       <div className="row">
                         <div className="col-md-6 mb-4">
-                          <label htmlFor="" className="form-label">
-                            {" "}
-                            Name{" "}
+                          <label htmlFor="" 
+                          className="form-control form-label "
+                         >
+                            Name
                           </label>
                           <input
                             type="text"
-                            className="form-control form-control-lg"
+                            {...register("name", {
+                              required: "The name field is required",
+                            })}
+                            className={`form-control form-control-lg   ${errors.name && "is-invalid"}`}
                             placeholder="Enter Name"
+
                           />
+                          {errors.email && (
+                            <p className="invalid-feedback">
+                              {errors.email?.message}
+                            </p>
+                          )}
                         </div>
                         <div className="col-md-6 mb-4">
                           <label htmlFor="" className="form-label">
                             {" "}
                             Email{" "}
                           </label>
+
                           <input
                             type="text"
-                            className="form-control form-control-lg"
+                            {...register("email", {
+                              required: "the Emial field is required..",
+                              pattern: {
+                                value:
+                                  /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                                message: "invalid email address",
+                              },
+                            })}
+                            className={`form-control form-control-lg  ${errors.email && "is-invalid"}`}
                             placeholder="Enter Email"
                           />
+                          {errors.email && (
+                            <p className="invalid-feedback">
+                              {errors.email?.message}
+                            </p>
+                          )}
                         </div>
                         <div className="col-md-6 mb-4">
                           <label htmlFor="" className="form-label">
@@ -93,6 +148,7 @@ function ContactUs() {
                           </label>
                           <input
                             type="text"
+                            {...register("phone")}
                             className="form-control form-control-lg"
                             placeholder="Phone"
                           />
@@ -104,19 +160,28 @@ function ContactUs() {
                           </label>
                           <input
                             type="text"
+                            {...register("subject")}
                             className="form-control form-control-lg"
                             placeholder="Subject"
                           />
                         </div>
                       </div>
                       <div>
-                      <label htmlFor="" className="form-label">
-                            {" "}
-                            Message{" "}
-                          </label>
-                          <textarea name="" id="" rows={5}placeholder="Write your message here ..." className="form-control form-control-lg"></textarea>
+                        <label htmlFor="" className="form-label">
+                          {" "}
+                          Message{" "}
+                        </label>
+                        <textarea
+                          {...register("message")}
+                          id=""
+                          rows={5}
+                          placeholder="Write your message here ..."
+                          className="form-control form-control-lg"
+                        ></textarea>
                       </div>
-                      <button className="btn btn-primary large mt-3 ">Submit</button>
+                      <button className="btn btn-primary large mt-3 ">
+                        Submit
+                      </button>
                     </form>
                   </div>
                 </div>
