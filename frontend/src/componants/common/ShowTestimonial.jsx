@@ -13,7 +13,6 @@ const ShowTestimonial = () => {
       method: "GET",
     });
     const result = await res.json();
-    console.log(result);
     SetTestimonials(result.data);
   };
   useEffect(() => {

@@ -23,9 +23,13 @@ import { default as EditProjects } from "./componants/backend/projects/Edit";
 import { default as ShowArticles } from "./componants/backend/articles/Show";
 import { default as CreateArticles } from "./componants/backend/articles/Create";
 import { default as EditArticles } from "./componants/backend/articles/Edit";
-import { default as ShowTestimonial} from "./componants/backend/testimonial/Show";
+import { default as ShowTestimonial } from "./componants/backend/testimonial/Show";
 import { default as CreateTestimonial } from "./componants/backend/testimonial/Create";
 import { default as EditTestimonial } from "./componants/backend/testimonial/Edit";
+import { default as ShowMember } from "./componants/backend/members/Show";
+import { default as CreateMember } from "./componants/backend/members/Create";
+import { default as EditMember } from "./componants/backend/members/Edit";
+import Member from "./componants/common/Member";
 
 export function App() {
   const [count, setCount] = useState(0);
@@ -41,6 +45,9 @@ export function App() {
           <Route path="/blogs" element={<Blogs />} />
           <Route path="/contact-us" element={<ContactUs />} />
           <Route path="/admin/login" element={<Login />} />
+          <Route path="/member" element={<Member />} />
+          
+          
           <Route
             path="/admin/dashboard"
             element={
@@ -147,6 +154,32 @@ export function App() {
               </RequireAuth>
             }
           />
+
+          <Route
+            path="/admin/members"
+            element={
+              <RequireAuth>
+                <ShowMember />
+              </RequireAuth>
+            }
+          />
+          <Route
+            path="/admin/members/create"
+            element={
+              <RequireAuth>
+                <CreateMember />
+              </RequireAuth>
+            }
+          />
+          <Route
+            path="/admin/members/edit/:id"
+            element={
+              <RequireAuth>
+                <EditMember />
+              </RequireAuth>
+            }
+          />
+          
         </Routes>
       </BrowserRouter>
       <ToastContainer position="top-center" />

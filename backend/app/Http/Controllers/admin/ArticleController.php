@@ -13,7 +13,8 @@ use Intervention\Image\ImageManager;
 use Intervention\Image\Drivers\Gd\Driver;
 
 class ArticleController extends Controller
-{//it will return All Articles
+{
+    //it will return All Articles
     public function index()
     {
 
@@ -151,7 +152,7 @@ class ArticleController extends Controller
         ]);
     }
 
-
+    //it will show single Articles 
     public function show($id)
     {
         $article = Article::find($id);
@@ -166,7 +167,7 @@ class ArticleController extends Controller
             'data' => $article
         ]);
     }
-
+    //it will delete single Article 
     public function destroy($id)
     {
         $article = Article::find($id);
@@ -179,13 +180,11 @@ class ArticleController extends Controller
         File::delete(public_path('uploads/articles/large/') . $article->image);
         File::delete(public_path('uploads/articles/small/') . $article->image);
 
-        $article -> delete();   
+        $article->delete();
 
         return response()->json([
             'status' => true,
-            'message'=>"Article Deleted Successfully"
+            'message' => "Article Deleted Successfully"
         ]);
     }
-
-
 }

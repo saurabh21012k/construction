@@ -1,11 +1,11 @@
 import React, { useState, useRef } from "react";
-import Header from "../../common/Header";
-import Sidebar from "../../common/Sidebar";
 import { Link, useNavigate } from "react-router-dom";
-import Footer from "../../common/Footer";
 import { apiUrl, token } from "../../common/http";
 import { toast } from "react-toastify";
 import { useForm } from "react-hook-form";
+import Footer from "../../common/Footer";
+import Sidebar from "../../common/Sidebar";
+import Header from "../../common/Header";
 
 function Create() {
   const editor = useRef(null);
@@ -70,17 +70,16 @@ function Create() {
 
   return (
     <>
-      <Header />
+    <Header/>
       <main>
         <div className="container my-5">
           <div className="row">
             <div className="col-md-3">
-              {/* sideboard */}
-              <Sidebar />
+              <Sidebar/>
             </div>
-            <div className="col-md-9 ">
-              {/* Dashboard */}
-              <div className="card shadow border-0">
+            {/* Dashboard */}
+          <div className="col-md-9">
+          <div className="card shadow border-0">
                 <div className="card-body p-4">
                   <div className="d-flex justify-content-between">
                     <h4 className="h5">Testimonial / Create</h4>
@@ -164,11 +163,11 @@ function Create() {
                   </form>
                 </div>
               </div>
-            </div>
+          </div>
           </div>
         </div>
       </main>
-      <Footer />
+      <Footer/>
     </>
   );
 }

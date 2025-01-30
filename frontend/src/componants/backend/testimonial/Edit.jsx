@@ -92,17 +92,16 @@ const Edit = (placeholder) => {
      };
   return (
     <>
-      <Header />
+    <Header/>
       <main>
         <div className="container my-5">
           <div className="row">
             <div className="col-md-3">
-              {/* sideboard */}
-              <Sidebar />
+              <Sidebar/>
             </div>
-            <div className="col-md-9 ">
-              {/* Dashboard */}
-              <div className="card shadow border-0">
+            {/* Dashboard */}
+          <div className="col-md-9">
+          <div className="card shadow border-0">
                 <div className="card-body p-4">
                   <div className="d-flex justify-content-between">
                     <h4 className="h5">Testimonial / Edit</h4>
@@ -197,11 +196,11 @@ const Edit = (placeholder) => {
                   </form>
                 </div>
               </div>
-            </div>
+          </div>
           </div>
         </div>
       </main>
-      <Footer />
+      <Footer/>
     </>
   );
 };

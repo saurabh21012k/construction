@@ -2,15 +2,15 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { apiUrl, token } from "../../common/http";
 import { toast } from "react-toastify";
-import Footer from "../../common/Footer";
 import Header from "../../common/Header";
 import Sidebar from "../../common/Sidebar";
+import Footer from "../../common/Footer";
 
 const Show = () => {
-  const [testimonial, SetTestimonial] = useState([]);
+  const [members, setMembers] = useState([]);
 
-  const fetchTestimonial = async () => {
-    const res = await fetch(apiUrl + "testimonial", {
+  const fetchMember = async () => {
+    const res = await fetch(apiUrl + "members", {
       method: "GET",
       headers: {
         "Content-type": "application/json",
@@ -19,12 +19,12 @@ const Show = () => {
       },
     });
     const result = await res.json();
-    SetTestimonial(result.data);
+    setMembers(result.data);
   };
 
-  const deleteTestimonial = async (id) => {
-    if (confirm("Are you sure? confirm delete Testimonial")) {
-      const res = await fetch(apiUrl + "testimonial/" + id, {
+  const deleteMember = async (id) => {
+    if (confirm("Are you sure? confirm delete member")) {
+      const res = await fetch(apiUrl + "members/" + id, {
         method: "DELETE",
         headers: {
           "Content-type": "application/json",
@@ -36,10 +36,8 @@ const Show = () => {
       const result = await res.json();
 
       if (result.status == true) {
-        const newTestimonial = testimonial.filter(
-          (testimonial) => testimonial.id != id
-        );
-        SetTestimonial(newTestimonial);
+        const newMember = member.filter((member) => member.id != id);
+        setMembers(newMember);
         toast.success(result.message);
       } else {
         toast.error(result.message);
@@ -48,7 +46,7 @@ const Show = () => {
   };
 
   useEffect(() => {
-    fetchTestimonial();
+    fetchMember();
   }, []);
   return (
     <>
@@ -64,9 +62,9 @@ const Show = () => {
           <div className="card shadow border-0">
             <div className="card-body p-4">
               <div className="d-flex justify-content-between">
-                <h4 className="h5">Testimonial</h4>
+                <h4 className="h5">Members</h4>
                 <Link
-                  to="/admin/testimonial/create"
+                  to="/admin/members/create"
                   className="btn btn-primary"
                 >
                   Create
@@ -77,33 +75,33 @@ const Show = () => {
                 <thead>
                   <tr>
                     <th>ID</th>
-                    <th>Testimonial</th>
-                    <th>Citation</th>
+                    <th>name</th>
+                    <th>job_title</th>
                     <th>Status</th>
                     <th>Action</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {testimonial &&
-                    testimonial.map((testimonial) => {
+                  {members &&
+                    members.map((member) => {
                       return (
-                        <tr key={`testimonial-${testimonial.id}`}>
-                          <td>{testimonial.id}</td>
-                          <td>{testimonial.testimonial}</td>
-                          <td>{testimonial.citation}</td>
+                        <tr key={`member-${member.id}`}>
+                          <td>{member.id}</td>
+                          <td>{member.name}</td>
+                          <td>{member.job_title}</td>
                           <td>
-                            {testimonial.status == 1 ? "Active" : "Block"}
+                            {member.status == 1 ? "Active" : "Block"}
                           </td>
                           <td>
                             <Link
-                              to={`/admin/testimonial/edit/${testimonial.id}`}
+                              to={`/admin/members/edit/${member.id}`}
                               className="btn btn-primary btn-sm ms-2"
                             >
                               Edit
                             </Link>
                             <Link
-                              onClick={() => deleteTestimonial(testimonial.id)}
-                              to="/admin/testimonial"
+                              onClick={() => deleteMember(member.id)}
+                              to="/admin/member"
                               className="btn btn-secondary btn-sm ms-2"
                             >
                               Delete
