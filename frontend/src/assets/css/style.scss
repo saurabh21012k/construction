@@ -195,7 +195,13 @@ footer {
 }
 
 .section-3 {
-
+    
+    .swiper{
+        padding: 35px 25px 50px 25px;
+        .swiper-pagination-bullet-active{
+            background-color: $secondary-color;
+        }
+    }
     .item {
         position: relative;
         overflow: hidden;
@@ -252,6 +258,11 @@ footer {
         }
     }
 }
+  
+  
+  
+  
+  
 
 .section-4{
     .card{
@@ -297,6 +308,12 @@ footer {
 }
 
 .section-6{
+    .swiper{
+        padding: 35px 25px 50px 25px;
+        .swiper-pagination-bullet-active{
+            background-color: $secondary-color;
+        }
+    }
     .card{
         border-radius: 40px;
         img{
@@ -384,5 +401,70 @@ footer {
 .section-10{
     .sidebar{
         border-radius: 40px;
+    }
+}
+
+.section-11 {
+    
+    .swiper{
+        padding: 35px 25px 50px 25px;
+        .swiper-pagination-bullet-active{
+            background-color: $secondary-color;
+        }
+    }
+    .item {
+        position: relative;
+        overflow: hidden;
+        align-items: center;
+        color: $text-color-white;
+        margin-bottom: 20px;
+        &:hover{
+            .service-body{
+                transform: translateY(0%);
+                .service-content{
+                    opacity: 1;
+                }
+
+            }
+        }
+
+        .service-image {
+            position: relative;
+            overflow: hidden;
+
+            img {
+                width: 100%;
+                border-radius: 40px;
+                aspect-ratio: 1/1.2;
+                object-fit: cover;
+            }
+            &::after{
+                content:"";
+                position: absolute;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                right: 0;
+                border-radius: 40px;
+                background:linear-gradient(180deg, rgba(217,217,217,0)0%,
+                rgba(217,217,217,0)13.02%,rgba(0,0,0,0.51)42.5%
+                ,rgba(0,0,0,0.63)70%,#000000 100%);
+            }
+        }
+
+        .service-body {
+            position: absolute;
+            left: 30px;
+            right: 30px;
+            bottom: 30px;
+            transform: translateY(80%);
+            transition: all 0.4s ease-in-out;
+            text-align: center;
+
+            .service-content{
+                transition:  all 0.4s ease-in-out;
+                opacity: 0;
+            }
+        }
     }
 }

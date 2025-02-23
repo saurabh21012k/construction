@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { apiUrl, fileUrl } from "./http";
-import AvatharImg from "../../assets/images/author-2.jpg";
 import { Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css/pagination";

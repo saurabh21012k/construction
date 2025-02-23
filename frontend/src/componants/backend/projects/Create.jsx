@@ -1,4 +1,4 @@
-import React, { useState, useRef, useMemo } from "react";
+import React, { useState, useRef, useMemo, useEffect } from "react";
 import Header from "../../common/Header";
 import Sidebar from "../../common/Sidebar";
 import { Link, useNavigate } from "react-router-dom";
@@ -7,6 +7,7 @@ import Footer from "../../common/Footer";
 import { apiUrl, token } from "../../common/http";
 import { toast } from "react-toastify";
 import { useForm } from "react-hook-form";
+
 
 function Create(placeholder) {
   const editor = useRef(null);
@@ -21,6 +22,20 @@ function Create(placeholder) {
     }),
     [placeholder]
   );
+
+  const [services, setServices] = useState([]);
+  const fetchAllServices = async () => {
+    const res = await fetch(apiUrl + "get-services", {
+      method: "GET",
+    });
+    const result = await res.json();
+    console.log(result.data);
+    setServices(result.data);
+  };
+
+  useEffect(() => {
+    fetchAllServices();
+  }, []);
 
   const {
     register,
@@ -56,7 +71,6 @@ function Create(placeholder) {
     const file = e.target.files[0];
     formData.append("image", file);
     setIsDisable(true);
-    
 
     await fetch(apiUrl + "temp-images", {
       method: "POST",
@@ -158,19 +172,12 @@ function Create(placeholder) {
                             className="form-control"
                             {...register("construction_type")}
                           >
-                            <option value="">Construction Type</option>
-                            <option value="Residential Construction">
-                              Residential Construction{" "}
-                            </option>
-                            <option value="Commercial Construction">
-                              Commercial Construction{" "}
-                            </option>
-                            <option value="Industrial Construction">
-                              Industrial Construction{" "}
-                            </option>
-                            <option value="Infrastructure Construction">
-                              Infrastructure Construction{" "}
-                            </option>
+                            <option value="">Select Construction Type</option>
+                            {services.map((service) => (
+                              <option key={service.id} value={service.title}>
+                                {service.title}
+                              </option>
+                            ))}
                           </select>
                         </div>
                       </div>

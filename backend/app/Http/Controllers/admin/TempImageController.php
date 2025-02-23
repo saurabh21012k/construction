@@ -17,7 +17,7 @@ class TempImageController extends Controller
     {
 
         $validator = Validator::make($request->all(), [
-            'image' => 'required |mimes:png,jpg,jpeg,gif|max:2048'
+            'image' => 'required |mimes:png,jpg,jpeg,gif'
         ]);
 
         if ($validator->fails()) {

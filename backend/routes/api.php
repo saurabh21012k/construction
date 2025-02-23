@@ -36,6 +36,11 @@ Route::get('get-services/{id}', [FrontServiceController::class, 'show']);
 Route::get('get-projects/{id}', [FrontProjectController::class, 'show']);
 Route::get('get-articles/{id}', [FrontArticleController::class, 'show']);
 Route::post('contact-now', [ContactController::class, 'index']);
+Route::get('get-filter-projects/{location}', [FrontProjectController::class, 'filterProject']);
+Route::get('get-project-locations', [FrontProjectController::class, 'getProjectLocations']);
+Route::get('get-project-type', [FrontProjectController::class, 'getProjectType']);
+Route::get('get-project-type/{Construction_type}', [FrontProjectController::class, 'getfilterProjectType']);
+Route::get('getProjectsByServiceId/{serviceId}', [FrontProjectController::class, 'getProjectsByServiceId']);
 
 
 

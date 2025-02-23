@@ -1,4 +1,4 @@
-import React, { useState, useRef, useMemo } from "react";
+import React, { useState, useRef, useMemo, useEffect } from "react";
 import Header from "../../common/Header";
 import Sidebar from "../../common/Sidebar";
 import { Link, useNavigate, useParams } from "react-router-dom";
@@ -22,6 +22,20 @@ const Edit = (placeholder) => {
     }),
     [placeholder]
   );
+
+   const [services, setServices] = useState([]);
+    const fetchAllServices = async () => {
+      const res = await fetch(apiUrl + "get-services", {
+        method: "GET",
+      });
+      const result = await res.json();
+      console.log(result.data);
+      setServices(result.data);
+    };
+  
+    useEffect(() => {
+      fetchAllServices();
+    }, []);
 
   const params = useParams();
   const {
@@ -182,19 +196,12 @@ const Edit = (placeholder) => {
                             className="form-control"
                             {...register("construction_type")}
                           >
-                            <option value="">Construction Type</option>
-                            <option value="Residential Construction">
-                              Residential Construction{" "}
-                            </option>
-                            <option value="Commercial Construction">
-                              Commercial Construction{" "}
-                            </option>
-                            <option value="Industrial Construction">
-                              Industrial Construction{" "}
-                            </option>
-                            <option value="Infrastructure Construction">
-                              Infrastructure Construction{" "}
-                            </option>
+                            <option value="">Select Construction Type</option>
+                            {services.map((service) => (
+                              <option key={service.id} value={service.title}>
+                                {service.title}
+                              </option>
+                            ))}
                           </select>
                         </div>
                       </div>
