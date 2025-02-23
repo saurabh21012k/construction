@@ -16,6 +16,7 @@ import Dashboard from "./componants/backend/Dashboard";
 import RequireAuth from "./componants/common/RequireAuth";
 import {default as ShowServices} from "./componants/backend/services/Show";
 import {default as CreateServices} from "./componants/backend/services/Create";
+import {default as EditServices} from "./componants/backend/services/Edit";
 
 export function App() {
   const [count, setCount] = useState(0);
@@ -30,7 +31,7 @@ export function App() {
           <Route path="/projects" element={<Projects />} />
           <Route path="/blogs" element={<Blogs />} />
           <Route path="/contact-us" element={<ContactUs />} />
-          <Route path="/admin/login" element={<Login />} />
+          <Route path="/admin/login" element={<Login  />} />
           <Route
             path="/admin/dashboard"
             element={
@@ -52,6 +53,14 @@ export function App() {
             element={
               <RequireAuth>
                 <CreateServices/>
+              </RequireAuth>
+            }
+          />
+          <Route
+            path="/admin/services/edit/:id"
+            element={
+              <RequireAuth>
+                <EditServices/>
               </RequireAuth>
             }
           />
