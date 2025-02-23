@@ -5,8 +5,8 @@ export const fileUrl = 'http://localhost:8000/';
 // Frontend Url
 export const homeUrl = 'http://localhost:5173/';
 
-export const token = () =>{
+export const token = () => {
     const userInfo = localStorage.getItem('userInfo');
     const data = JSON.parse(userInfo);
     return data.token;
-}
+};
